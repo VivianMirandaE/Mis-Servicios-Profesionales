@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivian Miranda Espinoza – Consultoría en Gestión Humana Agroindustrial</title>
+<meta name="description" content="Consultoría estratégica en Gestión Humana para el sector agroindustrial. Compliance laboral, desarrollo de equipos y auditorías SMETA/GRASP. Trujillo – Disponibilidad nacional.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+:root {
+  --dark:      #0d1f10;
+  --forest:    #173a1b;
+  --leaf:      #2a6130;
+  --sage:      #4a8c52;
+  --gold:      #c8a84b;
+  --gold-lt:   #dfc278;
+  --gold-pale: rgba(200,168,75,.12);
+  --cream:     #f8f4ec;
+  --white:     #ffffff;
+  --ink:       #1a1a1a;
+  --mid:       #4a4a4a;
+  --soft:      #7a7a7a;
+  --border:    rgba(200,168,75,.22);
+  --border-lg: rgba(200,168,75,.08);
+}
+ 
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--ink); overflow-x: hidden; }
+ 
+/* ─── UTILITY ─── */
+.inner { max-width: 1140px; margin: 0 auto; padding: 0 2.5rem; }
+.gold-line { display: block; width: 40px; height: 2px; background: var(--gold); margin-bottom: 1rem; }
+.eyebrow {
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: .7rem; margin-bottom: .8rem;
+}
+ 
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.3rem 2.5rem;
+  transition: background .35s, padding .3s, box-shadow .3s;
+}
+nav.solid {
+  background: rgba(13,31,16,.96);
+  backdrop-filter: blur(14px);
+  padding: .85rem 2.5rem;
+  box-shadow: 0 2px 32px rgba(0,0,0,.3);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 1rem; text-decoration: none;
+}
+.nav-brand-mark {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 700; color: var(--dark);
+  flex-shrink: 0;
+}
+.nav-brand-text { line-height: 1.1; }
+.nav-brand-name { font-size: .82rem; font-weight: 600; color: #fff; letter-spacing: .03em; }
+.nav-brand-sub  { font-size: .65rem; color: rgba(255,255,255,.5); letter-spacing: .06em; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,.7); text-decoration: none; font-size: .8rem; letter-spacing: .07em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover { color: var(--gold-lt); }
+.nav-cta {
+  padding: .55rem 1.4rem;
+  background: var(--gold); color: var(--dark);
+  border: none; border-radius: 2px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: .3s; }
+ 
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(160deg, rgba(13,31,16,.92) 0%, rgba(23,58,27,.8) 50%, rgba(42,97,48,.65) 100%),
+    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=85') center/cover no-repeat fixed;
+  display: flex; align-items: center;
+  padding: 8rem 2.5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid { max-width: 1140px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .7rem;
+  background: rgba(200,168,75,.15); border: 1px solid rgba(200,168,75,.3);
+  color: var(--gold-lt); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  padding: .45rem 1rem; border-radius: 30px;
+  margin-bottom: 1.6rem;
+  opacity: 0; animation: fadeUp .6s .1s forwards;
+}
+.hero-tag::before { content: '●'; font-size: .5rem; color: var(--gold); }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 700; line-height: 1.07; color: #fff;
+  margin-bottom: 1.4rem;
+  opacity: 0; animation: fadeUp .7s .25s forwards;
+}
+.hero-h1 em { font-style: italic; color: var(--gold-lt); }
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300; line-height: 1.75;
+  color: rgba(255,255,255,.75); max-width: 540px;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp .7s .4s forwards;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s .55s forwards;
+}
+.btn-gold {
+  padding: .9rem 2.2rem;
+  background: var(--gold); color: var(--dark);
+  border: none; border-radius: 2px;
+  font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  display: inline-block;
+}
+.btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,168,75,.35); }
+.btn-ghost {
+  padding: .9rem 2.2rem;
+  background: transparent; color: rgba(255,255,255,.85);
+  border: 1px solid rgba(255,255,255,.3); border-radius: 2px;
+  font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: border-color .2s, color .2s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+ 
+/* Hero card (right col) */
+.hero-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(200,168,75,.25);
+  backdrop-filter: blur(16px);
+  border-radius: 4px;
+  padding: 2.4rem;
+  opacity: 0; animation: fadeIn .8s .7s forwards;
+}
+.hero-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600; color: var(--gold-lt);
+  margin-bottom: 1.4rem; line-height: 1.3;
+}
+.hero-benefit-list { list-style: none; display: flex; flex-direction: column; gap: .95rem; }
+.hero-benefit-list li {
+  display: flex; align-items: flex-start; gap: .8rem;
+  font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.55;
+}
+.hero-benefit-list li .ico {
+  width: 26px; height: 26px; flex-shrink: 0;
+  background: var(--gold-pale); border: 1px solid rgba(200,168,75,.3);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; color: var(--gold); margin-top: .1rem;
+}
+.hero-card-cta {
+  margin-top: 2rem; padding-top: 1.6rem;
+  border-top: 1px solid rgba(200,168,75,.15);
+  text-align: center;
+}
+.hero-card-cta p { font-size: .75rem; color: rgba(255,255,255,.45); margin-bottom: .8rem; }
+.wa-btn {
+  display: inline-flex; align-items: center; gap: .65rem;
+  width: 100%; justify-content: center;
+  padding: .85rem;
+  background: #25D366; color: #fff;
+  border-radius: 3px;
+  font-size: .85rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.wa-btn:hover { background: #1ebe5c; transform: translateY(-1px); }
+.wa-btn svg { width: 18px; height: 18px; fill: #fff; }
+ 
+/* Scroll indicator */
+.scroll-line {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .4rem;
+  color: rgba(255,255,255,.3); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.scroll-line::after {
+  content: ''; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, rgba(200,168,75,.6), transparent);
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:.4}50%{opacity:1} }
+ 
+/* ─── PROBLEMA / PROPUESTA ─── */
+#propuesta { padding: 5.5rem 2.5rem; background: var(--cream); }
+.prop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.prop-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2;
+  color: var(--dark); margin-bottom: 1.4rem;
+}
+.prop-text p { font-size: .95rem; line-height: 1.8; color: var(--mid); margin-bottom: 1.1rem; }
+.prop-text strong { color: var(--forest); font-weight: 600; }
+.proof-pills { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+.pill {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 30px; font-size: .78rem; font-weight: 500; color: var(--forest);
+}
+.pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.prop-img-side { position: relative; }
+.prop-img-side img {
+  width: 100%; height: 420px; object-fit: cover; border-radius: 3px; display: block;
+}
+.prop-stat-overlay {
+  position: absolute; bottom: -24px; left: -24px;
+  background: var(--forest); color: #fff;
+  padding: 1.6rem 2rem; border-radius: 3px;
+  box-shadow: 0 16px 48px rgba(13,31,16,.4);
+}
+.prop-stat-overlay .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.prop-stat-overlay .lbl { font-size: .72rem; color: rgba(255,255,255,.6); margin-top: .3rem; line-height: 1.4; }
+ 
+/* ─── SERVICIOS ─── */
+#servicios { padding: 6rem 2.5rem; background: #fff; }
+.servicios-header { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+.servicios-header .eyebrow { justify-content: center; }
+.servicios-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2;
+  color: var(--dark);
+}
+.servicios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(200,168,75,.12); border: 1px solid rgba(200,168,75,.12); }
+.servicio-card {
+  background: #fff; padding: 2.8rem 2.6rem;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .55s, transform .55s, background .3s;
+}
+.servicio-card.visible { opacity: 1; transform: translateY(0); }
+.servicio-card:hover { background: #fcfaf5; }
+.servicio-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s;
+}
+.servicio-card:hover::before { transform: scaleX(1); }
+.serv-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem; font-weight: 700; line-height: 1;
+  color: rgba(200,168,75,.12);
+  position: absolute; top: 1.2rem; right: 1.8rem;
+}
+.serv-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gold-pale); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin-bottom: 1.3rem;
+}
+.serv-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--forest);
+  margin-bottom: .4rem; line-height: 1.25;
+}
+.serv-sub { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.serv-desc { font-size: .88rem; line-height: 1.75; color: var(--mid); margin-bottom: 1.3rem; }
+.serv-bullets { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+.serv-bullets li {
+  font-size: .82rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5;
+}
+.serv-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: .78rem; }
+ 
+/* ─── POR QUÉ EXTERNO ─── */
+#porqué { padding: 5.5rem 2.5rem; background: var(--forest); }
+.porqué-inner { max-width: 1140px; margin: 0 auto; }
+.porqué-inner .eyebrow { color: var(--gold-lt); }
+.porqué-inner h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.7rem); font-weight: 700;
+  color: #fff; margin-bottom: 1rem; max-width: 640px; line-height: 1.2;
+}
+.porqué-inner > p { font-size: .95rem; color: rgba(255,255,255,.65); max-width: 620px; margin-bottom: 3.5rem; line-height: 1.8; }
+.ventajas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.ventaja-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 3px; padding: 2rem 1.8rem;
+  transition: background .3s, border-color .3s;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s, transform .5s, background .3s, border-color .3s;
+}
+.ventaja-card.visible { opacity: 1; transform: translateY(0); }
+.ventaja-card:hover { background: rgba(200,168,75,.06); border-color: rgba(200,168,75,.25); }
+.ventaja-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.ventaja-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold-lt); margin-bottom: .7rem; }
+.ventaja-desc { font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.6); }
+ 
+/* ─── CREDENCIALES / PRUEBA SOCIAL ─── */
+#credenciales { padding: 5.5rem 2.5rem; background: var(--cream); }
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.cred-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.7rem); font-weight: 700; line-height: 1.2;
+  color: var(--dark); margin-bottom: 1.2rem;
+}
+.cred-left p { font-size: .92rem; line-height: 1.8; color: var(--mid); margin-bottom: 2rem; }
+.metrics-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.metric-box {
+  background: #fff; border: 1px solid var(--border); border-radius: 3px;
+  padding: 1.5rem 1.4rem; text-align: center;
+  transition: box-shadow .25s, border-color .25s;
+}
+.metric-box:hover { box-shadow: 0 8px 32px rgba(0,0,0,.07); border-color: var(--gold); }
+.metric-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 700; color: var(--leaf); line-height: 1;
+}
+.metric-lbl { font-size: .72rem; letter-spacing: .07em; color: var(--soft); margin-top: .4rem; line-height: 1.4; }
+.cred-right { display: flex; flex-direction: column; gap: 1rem; }
+.exp-item {
+  background: #fff; border-left: 3px solid var(--gold);
+  padding: 1.4rem 1.6rem; border-radius: 0 3px 3px 0;
+  opacity: 0; transform: translateX(20px);
+  transition: opacity .5s, transform .5s;
+}
+.exp-item.visible { opacity: 1; transform: translateX(0); }
+.exp-company { font-weight: 700; color: var(--forest); font-size: .9rem; }
+.exp-role { font-size: .8rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; margin: .2rem 0; }
+.exp-detail { font-size: .8rem; color: var(--mid); line-height: 1.55; }
+.certs { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+.cert-tag {
+  padding: .35rem .9rem; border-radius: 2px;
+  background: var(--forest); color: rgba(255,255,255,.85);
+  font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+}
+ 
+/* ─── CTA FINAL ─── */
+#cta-final {
+  padding: 6rem 2.5rem;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--forest) 60%, var(--leaf) 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#cta-final::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=60') center/cover;
+  opacity: .08;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+#cta-final .eyebrow { justify-content: center; color: var(--gold-lt); margin-bottom: 1rem; }
+#cta-final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700;
+  color: #fff; line-height: 1.15; margin-bottom: 1.2rem;
+}
+#cta-final p { font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 2.8rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-wa-lg {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: 1rem 2.4rem;
+  background: #25D366; color: #fff;
+  border-radius: 3px;
+  font-size: .9rem; font-weight: 700; letter-spacing: .06em;
+  text-decoration: none;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-wa-lg:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,.3); }
+.btn-wa-lg svg { width: 20px; height: 20px; fill: #fff; }
+.btn-mail-lg {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: 1rem 2.4rem;
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,.3); border-radius: 3px;
+  font-size: .9rem; font-weight: 500; letter-spacing: .06em;
+  text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.btn-mail-lg:hover { border-color: var(--gold); color: var(--gold); }
+.cta-trust { margin-top: 2.5rem; font-size: .78rem; color: rgba(255,255,255,.35); letter-spacing: .06em; }
+ 
+/* ─── FOOTER ─── */
+footer { background: var(--dark); padding: 2rem 2.5rem; text-align: center; }
+footer p { font-size: .75rem; color: rgba(255,255,255,.25); letter-spacing: .07em; }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { color: var(--gold-lt); }
+ 
+/* ─── FLOATING WA BUTTON ─── */
+.float-wa {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(37,211,102,.5);
+  text-decoration: none;
+  transition: transform .25s, box-shadow .25s;
+  animation: popIn .5s 2s both;
+}
+.float-wa:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.55); }
+.float-wa svg { width: 28px; height: 28px; fill: #fff; }
+.float-wa-pulse {
+  position: absolute; inset: -6px; border-radius: 50%;
+  border: 2px solid rgba(37,211,102,.4);
+  animation: pulse 2.5s infinite;
+}
+@keyframes pulse { 0%{transform:scale(1);opacity:.8} 100%{transform:scale(1.5);opacity:0} }
+@keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+ 
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { to { opacity:1; } }
+ 
+/* ─── MOBILE NAV ─── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(13,31,16,.97); flex-direction: column; padding: 1.5rem; gap: 1.2rem; }
+  .nav-links.open { display: flex; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .inner { padding: 0 1.4rem; }
+  #hero { padding: 7rem 1.4rem 4rem; }
+  .prop-grid, .cred-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .prop-img-side { order: -1; }
+  .prop-stat-overlay { left: 0; bottom: -16px; }
+  .servicios-grid { grid-template-columns: 1fr; }
+  .ventajas-grid { grid-template-columns: 1fr; }
+  .metrics-row { grid-template-columns: repeat(2,1fr); }
+  section { padding-left: 1.4rem; padding-right: 1.4rem; }
+}
+</style>
+</head>
+<body>
+ 
+<!-- FLOAT WA -->
+<a href="https://wa.me/51949207429?text=Hola%20Vivian%2C%20me%20interesa%20conocer%20tus%20servicios%20de%20consultor%C3%ADa" target="_blank" class="float-wa" aria-label="Escríbeme por WhatsApp">
+  <div class="float-wa-pulse"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+ 
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-brand-mark">VM</div>
+    <div class="nav-brand-text">
+      <div class="nav-brand-name">Vivian Miranda E.</div>
+      <div class="nav-brand-sub">Consultoría en Gestión Humana</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#porqué">¿Por qué externo?</a></li>
+    <li><a href="#credenciales">Experiencia</a></li>
+    <li><a href="#cta-final">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/51949207429" target="_blank" class="nav-cta">Solicitar propuesta</a>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">Consultoría · Trujillo / Disponibilidad nacional</div>
+      <h1 class="hero-h1">Gestión Humana <em>estratégica</em> para el sector agro</h1>
+      <p class="hero-sub">Diez años optimizando equipos de hasta 5,000 personas en empresas agroindustriales y agroexportadoras. Ahora disponible como consultora externa, para que tu empresa acceda a ese mismo nivel de expertise sin los costos de una jefatura fija.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/51949207429?text=Hola%20Vivian%2C%20quiero%20conocer%20tus%20servicios%20de%20consultor%C3%ADa" target="_blank" class="btn-gold">Conversemos por WhatsApp</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios →</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">¿Qué puedo resolver en tu empresa?</div>
+      <ul class="hero-benefit-list">
+        <li><div class="ico">✓</div><span>Alta rotación de personal en campaña y costos de recontratación disparados</span></li>
+        <li><div class="ico">✓</div><span>Auditorías SMETA o GRASP sin un equipo preparado para responderlas</span></li>
+        <li><div class="ico">✓</div><span>Supervisores y capataces que no lideran, solo ejecutan órdenes</span></li>
+        <li><div class="ico">✓</div><span>Área de Gestión Humana sin procesos ni indicadores claros</span></li>
+        <li><div class="ico">✓</div><span>Subsidios no recuperados y beneficios sociales mal gestionados</span></li>
+      </ul>
+      <div class="hero-card-cta">
+        <p>Conversemos sin compromiso</p>
+        <a href="https://wa.me/51949207429?text=Hola%20Vivian%2C%20me%20interesa%20una%20consulta%20inicial" target="_blank" class="wa-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir ahora: 949 207 429
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-line">Scroll</div>
+</section>
+ 
+<!-- PROPUESTA -->
+<section id="propuesta">
+  <div class="inner prop-grid">
+    <div class="prop-text">
+      <div class="eyebrow">El problema que resuelvo</div>
+      <h2>Las empresas agro crecen. Sus áreas de Gestión Humana, no siempre.</h2>
+      <p>El sector agroindustrial es dinámico, exigente y auditado a nivel global. Sin embargo, muchas empresas enfrentan campañas con <strong>alta presión operativa, rotación costosa y auditorías sociales que llegan sin aviso</strong>.</p>
+      <p>Contar con una jefatura de Gestión Humana a tiempo completo es costoso. Contratar sin experiencia sectorial es arriesgado. La solución: <strong>consultoría externa especializada, que funciona como tu dirección de RRHH cuando la necesitas</strong>, al costo de un proyecto, no de una planilla.</p>
+      <div class="proof-pills">
+        <span class="pill"><span class="dot"></span>10 años en sector agro</span>
+        <span class="pill"><span class="dot"></span>+5,000 colaboradores gestionados</span>
+        <span class="pill"><span class="dot"></span>SMETA · GRASP · Global GAP</span>
+        <span class="pill"><span class="dot"></span>Régimen Agrario certificado</span>
+        <span class="pill"><span class="dot"></span>SAP HCM · Nisira HR</span>
+      </div>
+    </div>
+    <div class="prop-img-side">
+      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=700&q=80" alt="Campo agroindustrial en Perú" />
+      <div class="prop-stat-overlay">
+        <div class="num">98%</div>
+        <div class="lbl">dotación de personal<br>alcanzada en campaña</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="inner">
+    <div class="servicios-header">
+      <div class="eyebrow">Programas y servicios</div>
+      <h2>Soluciones concretas para problemas reales del sector</h2>
+    </div>
+    <div class="servicios-grid">
+ 
+      <div class="servicio-card">
+        <div class="serv-num">01</div>
+        <div class="serv-icon">🎯</div>
+        <div class="serv-title">Desarrollo de Mandos Medios</div>
+        <div class="serv-sub">Liderazgo en campo y planta</div>
+        <p class="serv-desc">Supervisores, jefes de fundo y capataces que lideran de verdad. Talleres prácticos diseñados para la realidad del campo: alta presión, equipos grandes y comunicación bajo estrés.</p>
+        <ul class="serv-bullets">
+          <li>Liderazgo situacional en entornos de campaña masiva</li>
+          <li>Resolución de conflictos en campo y planta</li>
+          <li>Comunicación efectiva con equipos operativos</li>
+          <li>Manejo de indicadores y reporteo simple</li>
+        </ul>
+      </div>
+ 
+      <div class="servicio-card">
+        <div class="serv-num">02</div>
+        <div class="serv-icon">🌱</div>
+        <div class="serv-title">Gestión de Talento y Mentoring</div>
+        <div class="serv-sub">Retención y desarrollo interno</div>
+        <p class="serv-desc">Construye liderazgo desde adentro. Diseño de planes de sucesión reales y programas de mentoring para que la rotación deje de ser un problema estructural.</p>
+        <ul class="serv-bullets">
+          <li>Matrices de capacitación y planes de sucesión</li>
+          <li>Programas de mentoring para multiplicadores internos</li>
+          <li>Estrategias de retención en operaciones masivas</li>
+          <li>KPIs de clima y satisfacción laboral</li>
+        </ul>
+      </div>
+ 
+      <div class="servicio-card">
+        <div class="serv-num">03</div>
+        <div class="serv-icon">⚙️</div>
+        <div class="serv-title">Estructura Organizacional y Clima</div>
+        <div class="serv-sub">Procesos y bienestar</div>
+        <p class="serv-desc">Diagnóstico y ordenamiento del área de Gestión Humana: funciones, procesos, indicadores y estrategias de clima que realmente impactan en la retención y productividad.</p>
+        <ul class="serv-bullets">
+          <li>Diagnóstico y diseño de procesos de RRHH</li>
+          <li>Estrategias de clima laboral con medición</li>
+          <li>Simplificación de procedimientos administrativos</li>
+          <li>Planes de bienestar social y RSE</li>
+        </ul>
+      </div>
+ 
+      <div class="servicio-card">
+        <div class="serv-num">04</div>
+        <div class="serv-icon">⚖️</div>
+        <div class="serv-title">Compliance Laboral y Auditorías</div>
+        <div class="serv-sub">Normativa · SMETA · GRASP</div>
+        <p class="serv-desc">Con base en Derecho Laboral y Régimen Agrario, acompaño a tu empresa en la preparación y respuesta a auditorías sociales internacionales. Sin sorpresas, sin incumplimientos.</p>
+        <ul class="serv-bullets">
+          <li>Asesoría en Régimen Laboral Agrario</li>
+          <li>Preparación y acompañamiento en SMETA / GRASP</li>
+          <li>Revisión de nóminas y beneficios sociales</li>
+          <li>Representación ante código ETI y Derechos Humanos</li>
+        </ul>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- POR QUÉ EXTERNO -->
+<section id="porqué">
+  <div class="porqué-inner inner">
+    <div class="eyebrow">Modelo de trabajo</div>
+    <h2>Dirección senior de Gestión Humana, sin los costos de una planilla fija</h2>
+    <p>Las empresas medianas y en crecimiento necesitan el mismo nivel de expertise que las grandes, pero con la flexibilidad de un modelo externo. Pagas por proyecto, por entregables o por horas específicas, no por una estructura que solo necesitas a tiempo parcial.</p>
+    <div class="ventajas-grid">
+      <div class="ventaja-card">
+        <div class="ventaja-icon">💰</div>
+        <div class="ventaja-title">Eficiencia presupuestal</div>
+        <p class="ventaja-desc">Accedes a 10 años de experiencia sectorial sin los sobrecostos de una jefatura en planilla: sueldo fijo, beneficios, CTS y vacaciones.</p>
+      </div>
+      <div class="ventaja-card">
+        <div class="ventaja-icon">⚡</div>
+        <div class="ventaja-title">Activación inmediata</div>
+        <p class="ventaja-desc">No hay curva de aprendizaje del sector. Conozco el régimen agrario, los ciclos de campaña y las exigencias de las certificaciones internacionales.</p>
+      </div>
+      <div class="ventaja-card">
+        <div class="ventaja-icon">🎯</div>
+        <div class="ventaja-title">Resultados medibles</div>
+        <p class="ventaja-desc">Trabajo con KPIs desde el inicio. Cada proyecto tiene entregables concretos y métricas de éxito definidas antes de comenzar.</p>
+      </div>
+      <div class="ventaja-card">
+        <div class="ventaja-icon">📋</div>
+        <div class="ventaja-title">Flexibilidad operativa</div>
+        <p class="ventaja-desc">Proyecto puntual, acompañamiento por campaña o asesoría mensual continua. El esquema se adapta a tu necesidad y presupuesto.</p>
+      </div>
+      <div class="ventaja-card">
+        <div class="ventaja-icon">🌐</div>
+        <div class="ventaja-title">Visión 360 del sector</div>
+        <p class="ventaja-desc">He trabajado en azúcar, arándanos, granadas y múltiples cultivos de exportación. Traigo las mejores prácticas de toda la industria a tu empresa.</p>
+      </div>
+      <div class="ventaja-card">
+        <div class="ventaja-icon">🔒</div>
+        <div class="ventaja-title">Confidencialidad total</div>
+        <p class="ventaja-desc">Trabajo con total reserva sobre tu organización, procesos y datos de personal. Acuerdo de confidencialidad disponible desde el primer contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CREDENCIALES -->
+<section id="credenciales">
+  <div class="inner">
+    <div class="cred-grid">
+      <div class="cred-left">
+        <div class="eyebrow">Credenciales y resultados</div>
+        <h2>10 años de resultados en el campo y la planta</h2>
+        <p>No soy consultora de manual. Cada servicio que ofrezco lo he ejecutado directamente, con equipos reales, en campañas reales y bajo presión real. Estos son algunos de los números que respaldan mi propuesta.</p>
+        <div class="metrics-row">
+          <div class="metric-box"><div class="metric-num counter" data-target="5000">0</div><div class="metric-lbl">Colaboradores gestionados en campaña</div></div>
+          <div class="metric-box"><div class="metric-num counter" data-target="98">0<span>%</span></div><div class="metric-lbl">Dotación de personal alcanzada</div></div>
+          <div class="metric-box"><div class="metric-num counter" data-target="87">0<span>%</span></div><div class="metric-lbl">Satisfacción de clima laboral</div></div>
+          <div class="metric-box"><div class="metric-num counter" data-target="50">0<span>%</span></div><div class="metric-lbl">Reducción en tiempos de contratación</div></div>
+        </div>
+        <div class="certs">
+          <span class="cert-tag">SMETA</span>
+          <span class="cert-tag">GRASP</span>
+          <span class="cert-tag">Global GAP</span>
+          <span class="cert-tag">Código ETI</span>
+          <span class="cert-tag">SAP HCM</span>
+          <span class="cert-tag">Nisira HR</span>
+          <span class="cert-tag">Régimen Agrario</span>
+        </div>
+      </div>
+      <div class="cred-right">
+        <div class="exp-item">
+          <div class="exp-company">Agrocasagrande SAC</div>
+          <div class="exp-role">Jefe de Gestión Humana · 2025</div>
+          <div class="exp-detail">Liderazgo de equipo de 50 personas. Gestión de más de 5,000 colaboradores en campaña. Representante ante auditorías SMETA y código ETI.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Valle y Pampa SAC – Family Farms</div>
+          <div class="exp-role">Jefe de Bienestar / Coordinadora ITB · 2023–2024</div>
+          <div class="exp-detail">4,500 colaboradores (arándanos y granadas). Clima laboral al 87%. Reducción del 50% en tiempos de inducción. Recuperación de subsidios al 100%.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Casa Grande SAA</div>
+          <div class="exp-role">Jefe de Bienestar · Supervisora de Comunicación y RS · 2013–2023</div>
+          <div class="exp-detail">9 años en la azucarera más grande del Perú. 3,500 colaboradores. Recuperación de subsidios al 98%. Red estratégica con EsSalud, Minsa, Municipalidad, PNP.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Formación académica</div>
+          <div class="exp-role">Maestría · Diplomados · Especialización en IA</div>
+          <div class="exp-detail">Maestría en Gestión Humana (UPN). Diplomado en Gestión Estratégica RRHH. Bachiller en Derecho (USS). Especialización en IA en RRHH (Centrum PUCP – en curso).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-inner">
+    <div class="eyebrow">Demos el primer paso</div>
+    <h2>¿Tu empresa necesita una mano experta en Gestión Humana?</h2>
+    <p>Cuéntame el desafío que enfrentas y en 24 horas te propongo cómo podemos trabajar juntos. Sin compromiso, sin costos de evaluación inicial.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/51949207429?text=Hola%20Vivian%2C%20quiero%20conversar%20sobre%20mis%20necesidades%20de%20Gesti%C3%B3n%20Humana" target="_blank" class="btn-wa-lg">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp: 949 207 429
+      </a>
+      <a href="mailto:vivianmespinoza@gmail.com?subject=Consulta%20sobre%20servicios%20de%20Gestión%20Humana" class="btn-mail-lg">
+        ✉ vivianmespinoza@gmail.com
+      </a>
+    </div>
+    <div class="cta-trust">Trujillo · Disponibilidad nacional · Respuesta en menos de 24 horas</div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Vivian Miranda Espinoza · Consultoría Estratégica en Gestión Humana · <a href="https://www.linkedin.com/in/vivian-miranda-e" target="_blank">LinkedIn</a></p>
+</footer>
+ 
+<script>
+// ── NAV ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 60));
+ 
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+ 
+// ── INTERSECTION OBSERVER ──
+function makeObserver(delay = 0) {
+  return new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.classList.add('visible');
+          // counters
+          const counter = e.target.querySelector('.counter');
+          if (counter && !counter.dataset.done) {
+            counter.dataset.done = '1';
+            animCount(counter, parseInt(counter.dataset.target));
+          }
+        }, i * 120 + delay);
+      }
+    });
+  }, { threshold: 0.12 });
+}
+const obs = makeObserver();
+document.querySelectorAll('.servicio-card, .ventaja-card, .exp-item').forEach(el => obs.observe(el));
+ 
+// metric boxes observer
+const obsM = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const counter = e.target.querySelector('.counter');
+      if (counter && !counter.dataset.done) {
+        counter.dataset.done = '1';
+        animCount(counter, parseInt(counter.dataset.target));
+      }
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.metric-box').forEach(el => obsM.observe(el));
+ 
+// ── COUNTER ──
+function animCount(el, target) {
+  const hasSuffix = el.querySelector('span');
+  const suffix = hasSuffix ? '%' : '';
+  let start = 0;
+  const dur = 1600;
+  const t0 = performance.now();
+  function step(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+    el.textContent = v.toLocaleString('es-PE') + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+ 
+// ── SMOOTH SCROLL for nav links ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
+ 
